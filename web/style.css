@@ -1,0 +1,79 @@
+.galeria {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item-galeria {
+    max-width: 300px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    box-shadow: 2px 1px 4px #CCC;
+    margin: 10px;
+}
+.capa-galeria {
+    width: calc(100% - 20px);
+    max-width: 300px;
+    max-height: 200px;
+}
+.capa-galeria img {
+    width: 280px;
+    height: 180px;
+}
+.descricao-galeria {
+    font-size: 12px;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    color: white;
+    box-sizing: content-box;
+    padding: 10px;
+    border: #4b74b9ff;
+    background-color: #527bbeff;
+    text-decoration: none;
+}
+
+.btn:hover {
+    border: #527bbeff;
+    background-color: #4b74b9ff;
+    text-decoration: none;
+}
+
+.read-more {
+    display: block;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+.album-comment {
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+}
+
+.album-comment .comment-author {
+    font-weight: 600;
+}
+
+.album-comment .comment-content {
+    text-align: justify;
+}
+
+.album-comment .comment-content::after {
+    content: close-quote;
+    font-size: 40px;
+}
+
+.album-comment .comment-content::before {
+    content: open-quote;
+    font-size: 40px;
+}

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Show album #title</title>
+        <title>Make an album</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
               crossorigin="anonymous">
         <link rel="stylesheet" href="/style.css" type="text/css">
@@ -16,7 +16,7 @@
             <h1>New album</h1>
             <p>Make a new album</p>
 
-            <form action="/album" method="post" class="form">
+            <form action="/Albums" method="post" class="form" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Album</legend>
                     <div class="form-group">
@@ -34,8 +34,12 @@
 
                     <legend>Photos</legend>
                     <div class="form-group">
-                        <label for="photo-001"></label>
-                        <input class="form-control" type="file" name="photo-001" id="photo-001">
+                        <label for="photos"></label>
+                        <input class="form-control" type="file" multiple="multiple" name="photos" id="photos">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-primary">Cadastrar</button>
                     </div>
                 </fieldset>
             </form>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +17,24 @@
             <h1>Albums</h1>
             <p>Manage albums</p>
 
+            <c:if test="${message}">
+                <div class="alert alert-danger">${message}</div>
+            </c:if>
+
+            <div class="offset-md-8 col-md-4">
+                <form action="/Albums" method="get">
+                    <div class="col-auto">
+                        <label class="sr-only" for="q">Search</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Search</div>
+                            </div>
+                            <input type="text" name="q" class="form-control" id="q" placeholder="What you are locking for?" value="${param.q}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             <table class="table table-condensed">
                 <thead>
                     <tr>
@@ -27,21 +46,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>0004</td>
-                        <td>Título do baguio</td>
-                        <td>Descrição do paranaue</td>
-                        <td>
-                            <img src="/assets/img/teste.jpg" height="45px">
-                        </td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary">Show</button>
-                                <button type="button" class="btn btn-warning">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
+                    <c:forEach items="${albums}" var="album">
+                        <tr>
+                            <td>${album.id}</td>
+                            <td>${album.title}</td>
+                            <td>${album.description}</td>
+                            <td>
+                                <img src="/assets/img/${album.coverPath}" height="45px">
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-primary">
+                                        <a href="/Albums?id=${album.id}">Show</a>
+                                    </button>
+                                    <button type="button" class="btn btn-warning">
+                                        <a href="/Albums=?id=${album.id}&edit">Edit</a>
+                                    </button>
+                                    <button type="button" class="btn btn-danger">
+                                        <a href="/Albums?id=${album.id}&delete">Edit</a>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

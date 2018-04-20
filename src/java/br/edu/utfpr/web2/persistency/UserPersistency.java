@@ -31,8 +31,8 @@ public class UserPersistency {
         PreparedStatement st;
         try {
             st = this.conn.prepareStatement("select * from users where email = ? and password = ?");
-            st.setString(0, email);
-            st.setString(1, password);
+            st.setString(1, email);
+            st.setString(2, password);
             return this.processResultSet(st.executeQuery()).size() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(UserPersistency.class.getName()).log(Level.SEVERE, null, ex);
@@ -40,13 +40,27 @@ public class UserPersistency {
         return false;
     }
 
+    public void store(User u) {
+        this.conn = Conexao.getInstance();
+        PreparedStatement st;
+        try {
+            st = this.conn.prepareStatement("insert into users (name, email, password) values (?, ?, ?)");
+            st.setString(1, u.getName());
+            st.setString(2, u.getEmail());
+            st.setString(3, u.getPassword());
+            st.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserPersistency.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public User findByCredentials(String email, String password) {
         this.conn = Conexao.getInstance();
         PreparedStatement st;
         try {
             st = this.conn.prepareStatement("select * from users where email = ? and password = ?");
-            st.setString(0, email);
-            st.setString(1, password);
+            st.setString(1, email);
+            st.setString(2, password);
             return this.processResultSet(st.executeQuery()).get(0);
         } catch (SQLException ex) {
             Logger.getLogger(UserPersistency.class.getName()).log(Level.SEVERE, null, ex);

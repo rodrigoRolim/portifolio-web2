@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +16,12 @@
             <h1>Photo Management</h1>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="/register" method="post" class="form-horizontal">
+                    <form action="/Register" method="post" class="form-horizontal">
                         <fieldset>
                             <legend>Sign up</legend>
+                            <c:if test="${cookie.containsKey('message')}">
+                                <div class="alert alert-danger">${hasError}</div>
+                            </c:if>
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" id="name" class="form-control">

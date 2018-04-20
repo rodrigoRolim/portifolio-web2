@@ -23,8 +23,8 @@ public class AuthServlet extends HttpServlet {
         rd = req.getRequestDispatcher("views/login.jsp");
         Cookie[] cookies = req.getCookies();
         for (int i = 0; i < cookies.length; i++) {
-            if (cookies[i].getName().equals("error") && !cookies[i].getValue().equals("")) {
-                req.setAttribute("hasError", cookies[i].getValue());
+            if (cookies[i].getName().equals("mensagem") && !cookies[i].getValue().equals("")) {
+                req.setAttribute("hasMessage", cookies[i].getValue());
                 cookies[i].setValue("");
                 cookies[i].setMaxAge(0);
                 resp.addCookie(cookies[i]);
@@ -54,10 +54,10 @@ public class AuthServlet extends HttpServlet {
                 session.setAttribute("usuarioLogado", usersController.findUserByCredentials(email, password));
                 resp.sendRedirect("/Albums/create");
             } else {
-                error = new Cookie("error", "Credenciais invalidas.");
+                error = new Cookie("mensagem", "Credenciais invalidas.");
             }
         } else {
-            error = new Cookie("error", "Email invalido.");
+            error = new Cookie("mensagem", "Email invalido.");
             resp.addCookie(error);
         }
         errorEmail = new Cookie("errorEmail", email);

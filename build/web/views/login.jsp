@@ -19,8 +19,8 @@
                     <form action="/Auth" method="post" class="form-horizontal">
                         <fieldset>
                             <legend>Sign in</legend>
-                            <c:if test="${cookie.containsKey('error')}">
-                                <div class="alert alert-danger">${hasError}</div>
+                            <c:if test="${cookie.containsKey('message')}">
+                                <div class="alert alert-default">${cookie.message.value}</div>
                             </c:if>
                             <div class="form-group">
                                 <label for="email">Email</label>

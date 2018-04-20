@@ -22,4 +22,8 @@ public class UsersController {
     public User findUserByCredentials(String email, String password){
         return this.persistency.findByCredentials(email, password);
     }
+    
+    public void store(User u){
+        this.persistency.store(u);
+    }
 }

@@ -16,7 +16,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if (Util.isLoggedin(session)) {
+        if (session != null) {
             req.getSession().setAttribute("logado", "");
             resp.sendRedirect("/Auth");
         }

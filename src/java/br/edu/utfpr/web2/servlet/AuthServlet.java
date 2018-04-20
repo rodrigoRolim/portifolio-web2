@@ -45,26 +45,26 @@ public class AuthServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        Cookie error = null;
-        Cookie errorEmail = null;
-        
+        Cookie mensagem = new Cookie("mensagem", "");
+        Cookie errorEmail = new Cookie("errorMail", "");
+
         if (Util.isEmail(email)) {
             if (usersController.auth(email, password)) {
                 HttpSession session = req.getSession();
                 session.setAttribute("usuarioLogado", usersController.findUserByCredentials(email, password));
-                resp.sendRedirect("/Albums/create");
             } else {
-                error = new Cookie("mensagem", "Credenciais invalidas.");
+                mensagem = new Cookie("mensagem", "Credenciais invalidas.");
             }
         } else {
-            error = new Cookie("mensagem", "Email invalido.");
-            resp.addCookie(error);
+            mensagem = new Cookie("mensagem", "Email invalido.");
         }
         errorEmail = new Cookie("errorEmail", email);
-        if (error != null) {
+        if (mensagem != null && !mensagem.getValue().equals("")) {
             resp.addCookie(errorEmail);
-            resp.addCookie(error);
+            resp.addCookie(mensagem);
+            resp.sendRedirect("/Auth");
+        } else {
+            resp.sendRedirect("/Albums/create");
         }
-        resp.sendRedirect("/Auth");
     }
 }

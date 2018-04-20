@@ -30,7 +30,7 @@ public class PhotoPersistency {
         this.conn = Conexao.getInstance();
         PreparedStatement st;
         try {
-            st = this.conn.prepareStatement("insert into albums (title, path, albums_id) values (?, ?, ?)");
+            st = this.conn.prepareStatement("insert into photos (title, path, albums_id) values (?, ?, ?)");
             st.setString(1, a.getTitle());
             st.setString(2, a.getPath());
             st.setInt(3, a.getAlbumsId());

@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -19,8 +19,8 @@
                     <form action="/Auth" method="post" class="form-horizontal">
                         <fieldset>
                             <legend>Sign in</legend>
-                            <c:if test="${cookie.containsKey('message')}">
-                                <div class="alert alert-default">${cookie.message.value}</div>
+                            <c:if test="${!hasMessage.equals('')}">
+                            <div class="alert alert-info">${hasMessage}</div>
                             </c:if>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -28,7 +28,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary">Login</button>
@@ -45,4 +45,4 @@
         </div>
     </body>
 
-    </html>
+</html>

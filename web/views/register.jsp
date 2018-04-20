@@ -32,11 +32,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="confirm-password">Confirm password</label>
-                                <input type="text" name="confirm-password" id="confirm-password" class="form-control">
+                                <input type="password" name="confirm-password" id="confirm-password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary">Register</button>

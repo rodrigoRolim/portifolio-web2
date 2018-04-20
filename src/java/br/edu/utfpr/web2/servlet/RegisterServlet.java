@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (pwd.equals(pwdConfirm)) {
             if (!Util.isEmail(email)) {
-                erro = new Cookie("mensagem", "Email inválido");
+                erro = new Cookie("mensagem", "Email invalido");
                 resp.addCookie(erro);
             } else {
                 User user = new User(nome, pwd, email);
@@ -47,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
                 resp.addCookie(mensagem);
             }
         } else {
-            erro = new Cookie("mensagem", "As senhas informadas são diferentes");
+            erro = new Cookie("mensagem", "As senhas informadas sao diferentes");
             resp.addCookie(erro);
         }
         if (erro == null) {

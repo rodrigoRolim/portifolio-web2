@@ -55,4 +55,11 @@ public class Album {
         this.coverPath = coverPath;
     }
 
+    @Override
+    public String toString() {
+        return "Album{" + "id=" + id + ", title=" + title + ", description=" + description + ", coverPath=" + coverPath + '}';
+    }
+    
+    
+
 }

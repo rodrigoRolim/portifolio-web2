@@ -53,17 +53,29 @@ public class AlbumPersistency {
         }
     }
     
-    public int lastId() {
+    public void update(Album a) {
         this.conn = Conexao.getInstance();
         PreparedStatement st;
         try {
-            st = this.conn.prepareStatement("select max(id) from albums");
-            ResultSet rs = st.executeQuery();
-            return Integer.parseInt(rs.getString(0));
+            st = this.conn.prepareStatement("insert albums set title = ?, description = ? , cover_path = ?");
+            st.setString(1, a.getTitle());
+            st.setString(2, a.getDescription());
+            st.setString(3, a.getCoverPath());
+            st.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AlbumPersistency.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+    }
+    
+    public int lastId() {
+        ArrayList<Album> array = this.index();
+        int maxId = 0;
+        for(Album a : array){
+            if(a.getId() > maxId){
+                maxId = a.getId();
+            }
+        }
+        return maxId;
     }
 
     private ArrayList<Album> processResultSet(ResultSet rs) {

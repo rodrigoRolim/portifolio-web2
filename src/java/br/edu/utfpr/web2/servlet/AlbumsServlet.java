@@ -21,7 +21,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet(name = "AlbumsServlet", urlPatterns = {"/Albums"})
 public class AlbumsServlet extends HttpServlet {
 
-    private final String UPLOAD_DIRECTORY = "C:\\uploads";
+    private final String UPLOAD_DIRECTORY = "C:\\Users\\Aluno\\Desktop\\portifolio-web2\\web\\uploads";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -54,11 +54,22 @@ public class AlbumsServlet extends HttpServlet {
                 AlbumController albumController = new AlbumController();
                 PhotoController photoController = new PhotoController();
 
-                album.setTitle(req.getParameter("title"));
-                album.setDescription(req.getParameter("description"));
-                albumController.store(album);
-                int idAlbum = albumController.lastId();
                 List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
+                for (FileItem item : multiparts) {
+                    if (item.isFormField()) {
+                        if (item.getFieldName().equals("title")) {
+                            album.setTitle(item.getString());
+                        }
+                        if (item.getFieldName().equals("description")) {
+                            album.setDescription(item.getString());
+                        }
+                    }
+                }
+
+                albumController.store(album);
+
+                int idAlbum = albumController.lastId();
+//                multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
                 for (FileItem item : multiparts) {
                     if (!item.isFormField()) {
                         String name = new File(item.getName()).getName();
@@ -66,10 +77,11 @@ public class AlbumsServlet extends HttpServlet {
 
                         if (item.getFieldName().equals("cover")) {
                             album.setCoverPath(name);
+                            albumController.update(album);
                         } else {
                             Photo p = new Photo();
                             p.setAlbumsId(idAlbum);
-                            p.setPath(path);
+                            p.setPath(name);
                             p.setTitle(name);
                             photoController.store(p);
                         }
@@ -82,7 +94,7 @@ public class AlbumsServlet extends HttpServlet {
                 req.setAttribute("message", "Erro no upload dos arquivos: " + e);
             }
         } else {
-            req.setAttribute("message", "Não permitido!");
+            req.setAttribute("message", "Nao permitido!");
         }
         req.getRequestDispatcher("views/albums/list.jsp").forward(req, resp);
     }

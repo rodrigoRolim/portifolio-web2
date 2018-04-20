@@ -20,6 +20,10 @@ public class AlbumController {
         this.persistency.store(a);
     }
     
+    public void update(Album a) {
+        this.persistency.update(a);
+    }
+    
     public int lastId() {
         return this.persistency.lastId();
     }

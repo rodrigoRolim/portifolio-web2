@@ -4,7 +4,6 @@ import br.edu.utfpr.web2.controller.AlbumController;
 import br.edu.utfpr.web2.controller.PhotoController;
 import br.edu.utfpr.web2.model.Album;
 import br.edu.utfpr.web2.model.Photo;
-import com.sun.xml.ws.installer.UpdateSharedLoaderProp;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet(name = "AlbumsServlet", urlPatterns = {"/Albums"})
 public class AlbumsServlet extends HttpServlet {
 
-    private final String UPLOAD_DIRECTORY = "/home/a1713477/UPLOADS";
+    private final String UPLOAD_DIRECTORY = "C:\\uploads";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

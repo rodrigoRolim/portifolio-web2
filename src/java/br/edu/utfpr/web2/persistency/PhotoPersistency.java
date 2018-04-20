@@ -25,6 +25,19 @@ public class PhotoPersistency {
         }
         return null;
     }
+    
+    public ArrayList<Photo> findByAlbum(int idAlbum) {
+        this.conn = Conexao.getInstance();
+        PreparedStatement st;
+        try {
+            st = this.conn.prepareStatement("select * from photos where albums_id = ?");
+            st.setInt(1, idAlbum);
+            return this.processResultSet(st.executeQuery());
+        } catch (SQLException ex) {
+            Logger.getLogger(PhotoPersistency.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public void store(Photo a) {
         this.conn = Conexao.getInstance();

@@ -16,6 +16,10 @@ public class AlbumController {
         return this.persistency.search(q);
     }
     
+    public Album show(int id) {
+        return this.persistency.show(id);
+    }
+    
     public void store(Album a) {
         this.persistency.store(a);
     }

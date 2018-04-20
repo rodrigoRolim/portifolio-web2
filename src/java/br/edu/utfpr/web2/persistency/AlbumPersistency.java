@@ -39,6 +39,24 @@ public class AlbumPersistency {
         return null;
     }
 
+    public Album show(int id) {
+        this.conn = Conexao.getInstance();
+        PreparedStatement st;
+        try {
+            st = this.conn.prepareStatement("select * from albums where id = ?");
+            st.setInt(1, id);
+            ArrayList<Album> album = this.processResultSet(st.executeQuery());
+            if(album.size() > 0){
+                return album.get(0);
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlbumPersistency.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public void store(Album a) {
         this.conn = Conexao.getInstance();
         PreparedStatement st;
@@ -52,26 +70,27 @@ public class AlbumPersistency {
             Logger.getLogger(AlbumPersistency.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void update(Album a) {
         this.conn = Conexao.getInstance();
         PreparedStatement st;
         try {
-            st = this.conn.prepareStatement("insert albums set title = ?, description = ? , cover_path = ?");
+            st = this.conn.prepareStatement("update albums set title = ?, description = ? , cover_path = ? where id = ?");
             st.setString(1, a.getTitle());
             st.setString(2, a.getDescription());
             st.setString(3, a.getCoverPath());
+            st.setInt(4, a.getId());
             st.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AlbumPersistency.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public int lastId() {
         ArrayList<Album> array = this.index();
         int maxId = 0;
-        for(Album a : array){
-            if(a.getId() > maxId){
+        for (Album a : array) {
+            if (a.getId() > maxId) {
                 maxId = a.getId();
             }
         }

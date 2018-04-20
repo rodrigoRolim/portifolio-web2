@@ -11,6 +11,10 @@ public class PhotoController {
         return this.persistency.index();
     }
     
+    public ArrayList<Photo> findByAlbum(int idAlbum) {
+        return this.persistency.findByAlbum(idAlbum);
+    }
+    
     public void store(Photo p) {
         this.persistency.store(p);
     }

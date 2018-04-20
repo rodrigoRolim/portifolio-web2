@@ -15,7 +15,7 @@ public class Conexao {
         if (instance == null) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                return DriverManager.getConnection("jdbc:mysql://localhost/dbweb2", "root", "utfpr");
+                return DriverManager.getConnection("jdbc:mysql://localhost/dbweb2", "root", "123");
             } catch (SQLException ex) {
                 System.err.println("Erro na conexão: " + ex.getMessage());
                 return null;

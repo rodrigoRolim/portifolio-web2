@@ -7,6 +7,7 @@ import br.edu.utfpr.web2.model.Photo;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,15 +22,14 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet(name = "AlbumsServlet", urlPatterns = {"/Albums"})
 public class AlbumsServlet extends HttpServlet {
 
-    private final String UPLOAD_DIRECTORY = "C:\\Users\\Aluno\\Desktop\\portifolio-web2\\web\\uploads";
+    private final String UPLOAD_DIRECTORY = "/home/a1713477/Área de Trabalho/portifolio-web2/web/uploads";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        RequestDispatcher reqdispatcher = req.getRequestDispatcher("views/albums/list.jsp");
-
         AlbumController albumController = new AlbumController();
+        PhotoController photoController = new PhotoController();
         String q = req.getParameter("q");
         ArrayList<Album> albums = new ArrayList<>();
         if (q == null) {
@@ -37,10 +37,22 @@ public class AlbumsServlet extends HttpServlet {
         } else {
             albums = albumController.search(q);
         }
+        
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("");
+        
+        if (req.getParameter("id") != null) {
+            Album album = albumController.show(Integer.parseInt(req.getParameter("id")));
+            if (album != null) {
+                requestDispatcher = req.getRequestDispatcher("views/albums/show.jsp");
+                req.setAttribute("album", album);
+                req.setAttribute("photos", photoController.findByAlbum(album.getId()));
+            }
+        } else {
+            requestDispatcher = req.getRequestDispatcher("views/albums/list.jsp");
+            req.setAttribute("albums", albums);
+        }
 
-        req.setAttribute("albums", albums);
-
-        reqdispatcher.forward(req, resp);
+        requestDispatcher.forward(req, resp);
     }
 
     @Override
@@ -69,10 +81,9 @@ public class AlbumsServlet extends HttpServlet {
                 albumController.store(album);
 
                 int idAlbum = albumController.lastId();
-//                multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
                 for (FileItem item : multiparts) {
                     if (!item.isFormField()) {
-                        String name = new File(item.getName()).getName();
+                        String name = new Date().getTime() + "-" + new File(item.getName()).getName();
                         String path = UPLOAD_DIRECTORY + File.separator + name;
 
                         if (item.getFieldName().equals("cover")) {
@@ -96,7 +107,7 @@ public class AlbumsServlet extends HttpServlet {
         } else {
             req.setAttribute("message", "Nao permitido!");
         }
-        req.getRequestDispatcher("views/albums/list.jsp").forward(req, resp);
+        resp.sendRedirect("/Albums");
     }
 
 }

@@ -1,69 +1,35 @@
 package br.edu.utfpr.web2.model;
 
 public class User {
-
-    private int id;
     private String name;
     private String password;
-    private String email;
 
     public User() {
-    }
 
-    public User(int id, String name, String password, String email) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
     }
-
-    public User(String name, String password, String email) {
-        this.name = name;
-        this.password = password;
-        this.email = email;
+    public User(String name, String password) throws Exception {
+        this();
+        this.setName(name);
+        this.setPassword(password);
     }
-
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public void setName(String name) throws Exception {
+        if(name.length() > 5) {
+            this.name = name;
+        } else {
+            throw new Exception("Name must be greater than 5 characters");
+        }
     }
-
-    public int getId() {
-        return id;
+    public void setPassword(String password) throws Exception {
+        if(password.length() > 5) {
+            this.password = password;
+        } else {
+            throw new Exception("Password must be greater than 5 characters");
+        }
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
-        return name;
+        return this.name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPassword() {
-        return password;
+        return this.password;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + '}';
-    }
-    
-    
 }

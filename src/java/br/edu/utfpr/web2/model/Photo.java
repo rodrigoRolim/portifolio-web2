@@ -1,58 +1,34 @@
 package br.edu.utfpr.web2.model;
 
-public class Photo {
+import java.util.Date;
 
+public class Photo {
     private int id;
-    private String title;
-    private String path;
-    private int albumsId;
+    private String identifierPhoto;
+    private Date addedPhotoDate;
 
     public Photo() {
-    }
 
-    public Photo(int id, String title, String path, int albumsId) {
-        this.id = id;
-        this.title = title;
-        this.path = path;
-        this.albumsId = albumsId;
     }
-
-    public Photo(String title, String path, int albumsId) {
-        this.title = title;
-        this.path = path;
-        this.albumsId = albumsId;
+    public Photo(String identifier) throws Exception{
+        this();
+        this.setAddedPhotoDate(addedPhotoDate);
+        this.setIdentifierPhoto(identifierPhoto);
     }
-
-    public int getId() {
-        return id;
+    public void setIdentifierPhoto(String identifierPhoto) throws Exception{
+        if(identifierPhoto.length() > 20){
+            this.identifierPhoto = identifierPhoto;
+        } else {
+            throw new Exception("Name must be less than 20 characteres");
+        }
     }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setAddedPhotoDate(Date addedPhotoDate2) {
+        this.addedPhotoDate = new Date();
     }
-
-    public String getTitle() {
-        return title;
+    public Date getAddedDate() {
+        return this.addedPhotoDate; 
     }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public String getIdentifier() {
+        return this.identifierPhoto;
     }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public int getAlbumsId() {
-        return albumsId;
-    }
-
-    public void setAlbumsId(int albumsId) {
-        this.albumsId = albumsId;
-    }
-
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/java"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/apache-commons.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/commons-io-1.3.2.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="build/web/WEB-INF/lib/org.apache.commons.fileupload.jar"/>
+	<classpathentry kind="lib" path="doc/apache-commons.jar"/>
+	<classpathentry kind="lib" path="doc/commons-io-1.3.2.jar"/>
+	<classpathentry kind="lib" path="doc/org.apache.commons.fileupload.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/apache-commons.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-io-1.3.2.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/org.apache.commons.fileupload.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rod_v/Downloads/servlet/servlet-api.jar/servlet-api.jar"/>
+	<classpathentry kind="output" path="build/web/WEB-INF/classes"/>
+</classpath>

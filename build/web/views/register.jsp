@@ -1,56 +1,40 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 
+    Document   : register
+    Created on : 02/06/2018, 18:14:43
+    Author     : rod_v
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Register</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/style.css" type="text/css">
+        <title>JSP Page</title>
     </head>
-
     <body>
-        <div class="container">
-            <h1>Photo Management</h1>
-            <div class="row">
-                <div class="col-md-6">
-                    <form action="/Register" method="post" class="form-horizontal">
-                        <fieldset>
-                            <legend>Sign up</legend>
-                            <c:if test="${cookie.containsKey('message')}">
-                                <div class="alert alert-danger">${hasError}</div>
-                            </c:if>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" id="name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm-password">Confirm password</label>
-                                <input type="password" name="confirm-password" id="confirm-password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary">Register</button>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <div class="logo">
-                        <img src="/assets/img/logo.png" height="200px">
-                    </div>
-                </div>
+        <form action="/portifolio-web2/register" method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-        </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword" placeholder="Password" required>
+            </div>  
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <img src="../resource/logo.png" alt="df"/>
+            <img src="<c:url value='${pageContext.getServletContext().getRealPath("/resource/logo.png")}' />" alt="TestDisplay"/>
+           <img src="${pageContext.getServletContext().getRealPath("/resource/logo.png")}" alt="f">
+           <p>${pageContext.servletContext.contextPath}/web/build/resouce/logo.png</p>
+           <p>${pageContext.getServletContext().getRealPath("/resource")}</p>
+           
+           <%
+               String images_path = pageContext.getServletContext().getRealPath("/resource/logo.png");
+               out.println("<img src="+images_path+">");
+           %>
     </body>
-
 </html>

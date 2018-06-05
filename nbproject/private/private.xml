@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/style.css</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/WEB-INF/glass-web.xml</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/servlet/AlbumCreateServlet.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/views/login.jsp</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/views/index.jsp</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/persistency/UserPersistency.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/servlet/Default.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/servlet/AuthServlet.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/servlet/LogoutServlet.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/views/register.jsp</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/persistency/DBConnectionSingleton.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/index.html</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/servlet/RegisterServlet.java</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/web/views/albums/create.jsp</file>
+            <file>file:/C:/Users/rod_v/Desktop/projetos/portfolio/portifolio-web2/src/java/br/edu/utfpr/web2/servlet/AlbumsServlet.java</file>
+        </group>
     </open-files>
 </project-private>

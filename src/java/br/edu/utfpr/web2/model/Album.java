@@ -1,65 +1,33 @@
 package br.edu.utfpr.web2.model;
 
 public class Album {
+	private Photo photo;
+	private String title;
+	//private int id;
+	
+	public Album() {
 
-    private int id;
-    private String title;
-    private String description;
-    private String coverPath;
+	}
 
-    public Album(int id, String title, String description, String coverPath) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.coverPath = coverPath;
-    }
+	public Album(Photo photo) throws Exception {
+		this();
+		this.setPhoto(photo);
+		this.setIdentifier(title);
+	}
 
-    public Album(String title, String description, String coverPath) {
-        this.title = title;
-        this.description = description;
-        this.coverPath = coverPath;
-    }
+	public void setPhoto(Photo photo) throws Exception {
+		if (!photo.equals(null)) {
+			this.photo = photo;
+		} else {
+			throw new Exception("Photo is null");
+		}
+	}
 
-    public Album() {
-    }
+	public void setIdentifier(String title) {
+		this.title = title;
+	}
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCoverPath() {
-        return coverPath;
-    }
-
-    public void setCoverPath(String coverPath) {
-        this.coverPath = coverPath;
-    }
-
-    @Override
-    public String toString() {
-        return "Album{" + "id=" + id + ", title=" + title + ", description=" + description + ", coverPath=" + coverPath + '}';
-    }
-    
-    
-
+	public Photo getPhoto() {
+		return this.photo;
+	}
 }

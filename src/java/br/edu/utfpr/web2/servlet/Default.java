@@ -14,10 +14,8 @@ public class Default extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-        RequestDispatcher rd = req.getRequestDispatcher("views/index.jsp");
-        
-        rd.forward(req, resp);
+         RequestDispatcher view =  req.getRequestDispatcher("/views/login.jsp");
+        view.forward(req, resp);
     }
 
 }

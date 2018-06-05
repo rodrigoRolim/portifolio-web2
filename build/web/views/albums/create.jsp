@@ -16,16 +16,16 @@
             <h1>New album</h1>
             <p>Make a new album</p>
 
-            <form action="/Albums" method="post" class="form" enctype="multipart/form-data">
+            <form action="/portifolio-web2/albums/create" method="post" class="form" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Album</legend>
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input class="form-control" type="text" name="title" id="title">
+                        <input class="form-control" type="text" name="title" id="title" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input class="form-control" type="text" name="description" id="description">
+                        <input class="form-control" type="text" name="description" id="description" required>
                     </div>
                     <div class="form-group">
                         <label for="cover">Cover</label>
@@ -35,7 +35,7 @@
                     <legend>Photos</legend>
                     <div class="form-group">
                         <label for="photos"></label>
-                        <input class="form-control" type="file" multiple="multiple" name="photos" id="photos">
+                        <input class="form-control" type="file" multiple="multiple" name="photos" id="photos" required>
                     </div>
                     
                     <div class="form-group">

@@ -1,4 +1,6 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,9 +38,9 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="col-md-6">
-                    <div class="logo">
-                        <img src="/assets/img/logo.png" height="200px">
+                <div class="col-md-6" height="200px">
+                    <div >
+                        <img src=req.getServletContext().getRealPath()/+"teste.jpg" height="200px">
                     </div>
                 </div>
             </div>

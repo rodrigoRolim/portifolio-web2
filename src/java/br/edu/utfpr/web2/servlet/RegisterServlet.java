@@ -34,11 +34,9 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException{
         try {
-           System.out.println("entrei aqui");
             User user = new User(req.getParameter("name"), req.getParameter("password"));
             UserPersistency userPersistency = new UserPersistency();
             userPersistency.createUser(user);
-            String images_path = req.getServletContext().getRealPath("/resource");
             req.getSession(true);
             //pageContext.setAttribute("url",images_path);
             resp.sendRedirect("albums");

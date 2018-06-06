@@ -17,17 +17,53 @@
     </head>
 
     <body>
-        
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a type="button" class="nav-link active btn btn-secondary" 
-               href="/portifolio-web2/albums/create"><i class="fas fa-plus-circle"> new album</i></a>
-             <div class="w-100 d-none d-md-block"></div>
-            <a type="button" class="btn btn-group" 
-               style="color: white; font-weight: bold">logout</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+            <div class="p-1 mr-auto">
+                 <a type="button" class="nav-link active btn btn-secondary" 
+                  href="/portifolio-web2/albums/create">
+                     <i class="fas fa-plus-circle"> new album</i>
+                 </a>
+            </div>           
+            </div>
+            <div class="p-1 ml-auto d-flex">
+                <div class="m-1">
+                  <a href="/portifolio-web2/register?language=pt-br">
+                      <img src="${pageContext.servletContext.contextPath}/images/brazil.png">
+                  </a>
+                  <a href="/portifolio-web2/register?language=en">
+                      <img src="${pageContext.servletContext.contextPath}/images/usa.png">
+                  </a>   
+                </div>
+                <a type="button" class="btn btn-group" 
+                style="color: white; font-weight: bold; margin-left: 20px">logout</a>
+            </div>           
         </nav>
-        <div class="container">
-            <img src="" alt="..." >
-            <img src="${pageContext.getServletContext().getRealPath("/resource/logo.png")}" class="img-thumbnail">
+        <div class="container d-flex align-content-start flex-wrap"
+             style="margin-top: 50px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png" 
+                 class="img-thumbnail" 
+                 style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png"
+                 class="img-thumbnail" 
+                  style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png"
+                 class="img-thumbnail" 
+                  style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png"
+                 class="img-thumbnail" 
+                  style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png"
+                 class="img-thumbnail" 
+                  style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png" 
+                 class="img-thumbnail" 
+                  style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png"
+                 class="img-thumbnail" 
+                  style="width: 150px; height: 150px; margin: 10px;">
+            <img src="${pageContext.servletContext.contextPath}/images/logo.png"
+                 class="img-thumbnail" 
+                 style="width: 150px; height: 150px; margin: 10px;">
+        </div>
     </body>
-
 </html>
